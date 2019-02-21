@@ -6,15 +6,15 @@ MONGOIMPORT=$(whereis -b mongoimport | cut -d ' ' -f2)
 
 set -e
 
-read -p 'Master Host: ' masterhost
-read -p 'User: ' username
-read -sp 'Password: ' mongopass
+read -p 'Host: ' HOST
+read -p 'User: ' USER
+read -sp 'Password: ' PASS
 echo
-read -p 'DB: ' db
-read -p 'Collection: ' collection
-read -p 'File: ' file
+read -p 'DB: ' DB
+read -p 'Collection: ' COLLECTION
+read -p 'File: ' FILE
 
 for i in {1..9}
 do
-  $MONGOIMPORT --host $masterhost --port 8635 --username $username --password $mongopass --authenticationDatabase admin -d ${db}_db_test-0${i} -c ${collection} --file ${file}.json
+  $MONGOIMPORT --host $HOST --port 8635 --username $USER --password $PASS --authenticationDatabase admin -d ${DB}_db_test-0${i} -c ${COLLECTION} --file ${FILE}.json
 done
