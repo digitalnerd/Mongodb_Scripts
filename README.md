@@ -1,2 +1,5 @@
 # Mongodb_Scripts
-Scripts for mongodb using
+
+$ chmod +x mongoimport.sh
+$ ./mongoimport.sh
+
